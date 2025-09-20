@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
 import Login1 from "../assets/login/Login1";
 import { Link } from "react-router-dom";
+import realsound from "../assets/realsound.mp3"
+
+function soundeffect(){
+        new Audio(realsound).play();
+    }
 
 function Navbar() {
+
+    
     // Theme state
-    const [theme, setTheme] = useState(
-        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-    );
-    const element = document.documentElement;
+    // const [theme, setTheme] = useState(
+    //     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    // );
+    // const element = document.documentElement;
 
 
-    // Handle theme switching
-    useEffect(() => {
-        if (theme === "dark") {
-            element.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            document.body.classList.add("dark");
-        } else {
-            element.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-            document.body.classList.remove("dark");
-        }
-    }, [theme]);
+    // // Handle theme switching
+    // useEffect(() => {
+    //     if (theme === "dark") {
+    //         element.classList.add("dark");
+    //         localStorage.setItem("theme", "dark");
+    //         document.body.classList.add("dark");
+    //     } else {
+    //         element.classList.remove("dark");
+    //         localStorage.setItem("theme", "light");
+    //         document.body.classList.remove("dark");
+    //     }
+    // }, [theme]);
 
     // Sticky navbar state
     const [sticky, setSticky] = useState(false);
@@ -132,7 +139,8 @@ function Navbar() {
 
                     {/* LOGIN BUTTON */}
                     <Link to="/Login1">
-                        <button className="cursor-pointer px-6 py-2 mx-4 text-white font-semibold rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg hover:from-pink-500 hover:to-yellow-500 transition-all duration-300">
+                        <button   
+                        onClick={soundeffect} className="cursor-pointer px-6 py-2 mx-4 text-white font-semibold rounded-3xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg hover:from-pink-500 hover:to-yellow-500 transition-all duration-300">
                             LOGIN NOW 
                         </button>
                     </Link>
